@@ -114,6 +114,38 @@ A modern, real-time collaboration platform built with cutting-edge technologies.
 - `bun lint:fix` - Fix ESLint issues
 - `bun format` - Format code with Prettier
 - `bun format:check` - Check code formatting
+- `bun sort-imports` - Sort imports according to priority
+- `bun check-all` - Run both linting and format checking
+
+## 🔧 Code Standards
+
+### Import Order Priority
+
+The project uses ESLint to automatically sort imports in the following order:
+
+1. **React & Next.js** - `react`, `react-dom`, `next/*`
+2. **External libraries** - Third-party packages
+3. **UI libraries** - `@radix-ui/*`, `lucide-react`
+4. **Internal modules** - `@/*` (with path mapping)
+5. **Relative imports** - `./`, `../`
+6. **CSS imports** - `.css` files
+
+Example:
+
+```tsx
+import React from 'react';
+import { NextPage } from 'next';
+
+import { Button } from '@radix-ui/react-button';
+import { ChevronDown } from 'lucide-react';
+
+import { MyComponent } from '@/components/MyComponent';
+import { utils } from '@/lib/utils';
+
+import { LocalComponent } from './LocalComponent';
+
+import './styles.css';
+```
 
 ## 🏗️ Project Structure
 
