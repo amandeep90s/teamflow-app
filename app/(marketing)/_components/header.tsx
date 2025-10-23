@@ -145,19 +145,20 @@ export const HeroHeader = () => {
                     >
                       Sign up
                     </RegisterLink>
+                    <div
+                      className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}
+                    >
+                      <RegisterLink
+                        className={buttonVariants({
+                          variant: 'default',
+                          size: 'sm',
+                        })}
+                      >
+                        Get Started
+                      </RegisterLink>
+                    </div>
                   </>
                 )}
-
-                <div className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                  <RegisterLink
-                    className={buttonVariants({
-                      variant: 'default',
-                      size: 'sm',
-                    })}
-                  >
-                    Get Started
-                  </RegisterLink>
-                </div>
               </div>
             </div>
           </div>
