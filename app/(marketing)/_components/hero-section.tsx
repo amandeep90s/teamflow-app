@@ -5,6 +5,13 @@ import { ArrowRight, ChevronRight } from 'lucide-react';
 import { AnimatedGroup } from '@/components/ui/animated-group';
 import { Button } from '@/components/ui/button';
 import { TextEffect } from '@/components/ui/text-effect';
+import ArcjetLogo from '@/public/images/arcjet.png';
+import KindeLogo from '@/public/images/kinde.png';
+import MotionLogo from '@/public/images/motion.png';
+import NeonDBLogo from '@/public/images/neon.png';
+import OrpcLogo from '@/public/images/orpc.webp';
+import PrismaLogo from '@/public/images/prisma.svg';
+import VercelLogo from '@/public/images/vercel.svg';
 
 import { HeroHeader } from './header';
 
@@ -92,7 +99,7 @@ export default function HeroSection() {
                     className='hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-zinc-950/5 transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950'
                   >
                     <span className='text-foreground text-sm'>
-                      Introducing Support for AI Models
+                      Introducing new AI features
                     </span>
                     <span className='dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700'></span>
 
@@ -115,7 +122,7 @@ export default function HeroSection() {
                   as='h1'
                   className='mx-auto mt-8 max-w-4xl text-5xl text-balance max-md:font-semibold md:text-7xl lg:mt-16 xl:text-[5.25rem]'
                 >
-                  Modern Solutions for Customer Engagement
+                  The AI-ready home for team communication
                 </TextEffect>
                 <TextEffect
                   per='line'
@@ -125,8 +132,8 @@ export default function HeroSection() {
                   as='p'
                   className='mx-auto mt-8 max-w-2xl text-lg text-balance'
                 >
-                  Highly customizable components for building modern websites
-                  and applications that look and feel the way you mean it.
+                  Tailflow organizes conversations into channels with threads,
+                  is realtime, and uses AI to keep teams in sync.
                 </TextEffect>
 
                 <AnimatedGroup
@@ -141,7 +148,7 @@ export default function HeroSection() {
                     },
                     ...transitionVariants,
                   }}
-                  className='mt-12 flex flex-col items-center justify-center gap-2 md:flex-row'
+                  className='mt-12 flex flex-col items-center justify-center gap-5 md:flex-row'
                 >
                   <div
                     key={1}
@@ -153,7 +160,7 @@ export default function HeroSection() {
                       className='rounded-xl px-5 text-base'
                     >
                       <Link href='#link'>
-                        <span className='text-nowrap'>Start Building</span>
+                        <span className='text-nowrap'>Get Started</span>
                       </Link>
                     </Button>
                   </div>
@@ -161,7 +168,7 @@ export default function HeroSection() {
                     key={2}
                     asChild
                     size='lg'
-                    variant='ghost'
+                    variant='secondary'
                     className='h-10.5 rounded-xl px-5'
                   >
                     <Link href='#link'>
@@ -220,77 +227,63 @@ export default function HeroSection() {
             </div>
             <div className='mx-auto mt-12 grid max-w-2xl grid-cols-4 gap-x-12 gap-y-8 transition-all duration-500 group-hover:opacity-50 group-hover:blur-xs sm:gap-x-16 sm:gap-y-14'>
               <div className='flex'>
-                <img
-                  className='mx-auto h-5 w-fit dark:invert'
-                  src='https://html.tailus.io/blocks/customers/nvidia.svg'
-                  alt='Nvidia Logo'
-                  height='20'
-                  width='auto'
+                <Image
+                  className='mx-auto h-7 object-contain dark:invert'
+                  src={ArcjetLogo}
+                  alt='Arcjet Logo'
                 />
               </div>
 
               <div className='flex'>
-                <img
-                  className='mx-auto h-4 w-fit dark:invert'
-                  src='https://html.tailus.io/blocks/customers/column.svg'
-                  alt='Column Logo'
-                  height='16'
-                  width='auto'
+                <Image
+                  className='mx-auto h-7 object-contain dark:invert'
+                  src={KindeLogo}
+                  alt='Kinde Logo'
                 />
               </div>
               <div className='flex'>
-                <img
-                  className='mx-auto h-4 w-fit dark:invert'
-                  src='https://html.tailus.io/blocks/customers/github.svg'
-                  alt='GitHub Logo'
-                  height='16'
-                  width='auto'
+                <Image
+                  className='mx-auto h-7 object-contain dark:invert'
+                  src={VercelLogo}
+                  alt='Vercel Logo'
                 />
               </div>
               <div className='flex'>
-                <img
-                  className='mx-auto h-5 w-fit dark:invert'
-                  src='https://html.tailus.io/blocks/customers/nike.svg'
-                  alt='Nike Logo'
-                  height='20'
-                  width='auto'
+                <Image
+                  className='mx-auto h-7 object-contain invert dark:invert-0'
+                  src={NeonDBLogo}
+                  alt='Neon Logo'
                 />
               </div>
               <div className='flex'>
-                <img
-                  className='mx-auto h-5 w-fit dark:invert'
-                  src='https://html.tailus.io/blocks/customers/lemonsqueezy.svg'
-                  alt='Lemon Squeezy Logo'
-                  height='20'
-                  width='auto'
+                <Image
+                  className='mx-auto h-7 object-contain dark:invert'
+                  src={OrpcLogo}
+                  alt='ORPC Logo'
                 />
               </div>
               <div className='flex'>
-                <img
-                  className='mx-auto h-4 w-fit dark:invert'
-                  src='https://html.tailus.io/blocks/customers/laravel.svg'
-                  alt='Laravel Logo'
-                  height='16'
-                  width='auto'
+                <Image
+                  className='mx-auto h-7 object-contain dark:invert'
+                  src={PrismaLogo}
+                  alt='Prisma Logo'
                 />
               </div>
               <div className='flex'>
-                <img
+                <Image
+                  className='mx-auto h-7 object-contain invert dark:invert-0'
+                  src={MotionLogo}
+                  alt='Motion Logo'
+                />
+              </div>
+
+              <div className='flex'>
+                <Image
                   className='mx-auto h-7 w-fit dark:invert'
-                  src='https://html.tailus.io/blocks/customers/lilly.svg'
-                  alt='Lilly Logo'
-                  height='28'
-                  width='auto'
-                />
-              </div>
-
-              <div className='flex'>
-                <img
-                  className='mx-auto h-6 w-fit dark:invert'
                   src='https://html.tailus.io/blocks/customers/openai.svg'
                   alt='OpenAI Logo'
                   height='24'
-                  width='auto'
+                  width='24'
                 />
               </div>
             </div>
