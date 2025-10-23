@@ -2,9 +2,15 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
+import {
+  RegisterLink,
+  LoginLink,
+  LogoutLink,
+} from '@kinde-oss/kinde-auth-nextjs/components';
 import { Menu, X } from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Logo from '@/public/images/logo.png';
 
@@ -18,6 +24,7 @@ const menuItems = [
 export const HeroHeader = () => {
   const [menuState, setMenuState] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const { isAuthenticated } = useKindeBrowserClient();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -99,34 +106,58 @@ export const HeroHeader = () => {
                 </ul>
               </div>
               <div className='flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit'>
-                <Button
-                  asChild
-                  variant='outline'
-                  size='sm'
-                  className={cn(isScrolled && 'lg:hidden')}
-                >
-                  <Link href='#'>
-                    <span>Login</span>
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size='sm'
-                  className={cn(isScrolled && 'lg:hidden')}
-                >
-                  <Link href='#'>
-                    <span>Sign Up</span>
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size='sm'
-                  className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}
-                >
-                  <Link href='#'>
-                    <span>Get Started</span>
-                  </Link>
-                </Button>
+                {isAuthenticated ? (
+                  <>
+                    <Link
+                      href='/workspace'
+                      className={buttonVariants({
+                        size: 'sm',
+                      })}
+                    >
+                      <span>Dashboard</span>
+                    </Link>
+                    <LogoutLink
+                      className={buttonVariants({
+                        variant: 'outline',
+                        size: 'sm',
+                      })}
+                    >
+                      Log out
+                    </LogoutLink>
+                  </>
+                ) : (
+                  <>
+                    <LoginLink
+                      className={buttonVariants({
+                        variant: 'outline',
+                        size: 'sm',
+                        className: cn(isScrolled && 'lg:hidden'),
+                      })}
+                    >
+                      Sign in
+                    </LoginLink>
+                    <RegisterLink
+                      className={buttonVariants({
+                        variant: 'default',
+                        size: 'sm',
+                        className: cn(isScrolled && 'lg:hidden'),
+                      })}
+                    >
+                      Sign up
+                    </RegisterLink>
+                  </>
+                )}
+
+                <div className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
+                  <RegisterLink
+                    className={buttonVariants({
+                      variant: 'default',
+                      size: 'sm',
+                    })}
+                  >
+                    Get Started
+                  </RegisterLink>
+                </div>
               </div>
             </div>
           </div>
