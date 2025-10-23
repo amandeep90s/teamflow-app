@@ -112,10 +112,9 @@ A modern, real-time collaboration platform built with cutting-edge technologies.
 - `bun start` - Start production server
 - `bun lint` - Run ESLint
 - `bun lint:fix` - Fix ESLint issues
-- `bun format` - Format code with Prettier
+- `bun format` - Format code with Prettier (includes Tailwind class sorting)
 - `bun format:check` - Check code formatting
 - `bun sort-imports` - Sort imports according to priority
-- `bun check-all` - Run both linting and format checking
 
 ## 🔧 Code Standards
 
@@ -145,6 +144,30 @@ import { utils } from '@/lib/utils';
 import { LocalComponent } from './LocalComponent';
 
 import './styles.css';
+```
+
+### Tailwind CSS Class Sorting
+
+Prettier automatically sorts Tailwind CSS classes using the official plugin. Classes are organized by:
+
+1. **Layout** - `container`, `box-sizing`, `display`, `position`
+2. **Spacing** - `margin`, `padding`
+3. **Sizing** - `width`, `height`, `min/max`
+4. **Typography** - `font-*`, `text-*`, `line-height`
+5. **Backgrounds** - `bg-*`
+6. **Borders** - `border-*`, `rounded-*`
+7. **Effects** - `shadow-*`, `opacity`, `transform`
+8. **Interactivity** - `hover:`, `focus:`, `active:`
+9. **Responsive** - `sm:`, `md:`, `lg:`, `xl:`, `2xl:`
+
+Example:
+
+```tsx
+// Before
+<div className="hover:bg-blue-500 text-white p-4 bg-blue-400 rounded-lg shadow-md">
+
+// After (automatically sorted)
+<div className="rounded-lg bg-blue-400 p-4 text-white shadow-md hover:bg-blue-500">
 ```
 
 ## 🏗️ Project Structure
